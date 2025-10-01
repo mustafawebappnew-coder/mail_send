@@ -23,23 +23,15 @@ app.post('/send-email', async (req, res) => {
   }
   
   try {
-    // const transporter = nodemailer.createTransport({
-    //   service: 'Gmail',
-    //   auth: {
-    //     user: process.env.SMTP_USER,
-    //     pass: process.env.SMTP_PASS,
-    //   },
-    // });
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-      const transporter = nodemailer.createTransport({
-    host: 'smtp.mailersend.net',
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'MS_ZBJ6Cz@test-z0vklo6w5dxl7qrx.mlsender.net',
-      pass: 'mssp.EGF8UcY.3z0vkloxzpel7qrx.4ZdtgEH',
-    },
-      });
+
 
     // Determine email subject and content based on source
     const isVideoConsult = source === 'Video Consult Form';
